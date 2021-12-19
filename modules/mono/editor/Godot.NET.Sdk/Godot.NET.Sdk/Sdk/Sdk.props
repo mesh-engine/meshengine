@@ -1,0 +1,115 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)\SdkPackageVersions.props" />
+
+  <PropertyGroup>
+    <!-- Determines if we should import Microsoft.NET.Sdk, if it wasn't already imported. -->
+    <MeshSdkImportsMicrosoftNetSdk Condition=" '$(UsingMicrosoftNETSdk)' != 'true' ">true</MeshSdkImportsMicrosoftNetSdk>
+
+    <MeshProjectTypeGuid>{8F3E2DF0-C35C-4265-82FC-BEA011F4A7ED}</MeshProjectTypeGuid>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Configurations>Debug;ExportDebug;ExportRelease</Configurations>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+    <MeshProjectDir Condition=" '$(SolutionDir)' != '' ">$(SolutionDir)</MeshProjectDir>
+    <MeshProjectDir Condition=" '$(SolutionDir)' == '' ">$(MSBuildProjectDirectory)</MeshProjectDir>
+    <MeshProjectDir>$([MSBuild]::EnsureTrailingSlash('$(MeshProjectDir)'))</MeshProjectDir>
+
+    <!-- Custom output paths for Mesh projects. In brief, 'bin\' and 'obj\' are moved to '$(MeshProjectDir)\.mesh\mono\temp\'. -->
+    <BaseOutputPath>$(MeshProjectDir).mesh\mono\temp\bin\</BaseOutputPath>
+    <OutputPath>$(MeshProjectDir).mesh\mono\temp\bin\$(Configuration)\</OutputPath>
+    <!--
+    Use custom IntermediateOutputPath and BaseIntermediateOutputPath only if it wasn't already set.
+    Otherwise the old values may have already been changed by MSBuild which can cause problems with NuGet.
+    -->
+    <IntermediateOutputPath Condition=" '$(IntermediateOutputPath)' == '' ">$(MeshProjectDir).mesh\mono\temp\obj\$(Configuration)\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath Condition=" '$(BaseIntermediateOutputPath)' == '' ">$(MeshProjectDir).mesh\mono\temp\obj\</BaseIntermediateOutputPath>
+
+    <!-- Do not append the target framework name to the output path. -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" Condition=" '$(MeshSdkImportsMicrosoftNetSdk)' == 'true' " />
+
+  <PropertyGroup>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+  </PropertyGroup>
+
+  <!--
+  The Microsoft.NET.Sdk only understands of the Debug and Release configurations.
+  We need to set the following properties manually for ExportDebug and ExportRelease.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' or '$(Configuration)' == 'ExportDebug' ">
+    <DebugSymbols Condition=" '$(DebugSymbols)' == '' ">true</DebugSymbols>
+    <Optimize Condition=" '$(Optimize)' == '' ">false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'ExportRelease' ">
+    <Optimize Condition=" '$(Optimize)' == '' ">true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MeshApiConfiguration Condition=" '$(Configuration)' != 'ExportRelease' ">Debug</MeshApiConfiguration>
+    <MeshApiConfiguration Condition=" '$(Configuration)' == 'ExportRelease' ">Release</MeshApiConfiguration>
+  </PropertyGroup>
+
+  <!-- Auto-detect the target Mesh platform if it was not specified. -->
+  <PropertyGroup Condition=" '$(MeshTargetPlatform)' == '' ">
+    <MeshTargetPlatform Condition=" '$([MSBuild]::IsOsPlatform(Linux))' ">linuxbsd</MeshTargetPlatform>
+    <MeshTargetPlatform Condition=" '$([MSBuild]::IsOsPlatform(FreeBSD))' ">linuxbsd</MeshTargetPlatform>
+    <MeshTargetPlatform Condition=" '$([MSBuild]::IsOsPlatform(OSX))' ">osx</MeshTargetPlatform>
+    <MeshTargetPlatform Condition=" '$([MSBuild]::IsOsPlatform(Windows))' ">windows</MeshTargetPlatform>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MeshRealTIsDouble Condition=" '$(MeshRealTIsDouble)' == '' ">false</MeshRealTIsDouble>
+  </PropertyGroup>
+
+  <!-- Mesh DefineConstants. -->
+  <PropertyGroup>
+    <!-- Define constant to identify Mesh builds. -->
+    <MeshDefineConstants>MESH</MeshDefineConstants>
+
+    <!--
+    Define constant to determine the target Mesh platform. This includes the
+    recognized platform names and the platform category (PC, MOBILE or WEB).
+    -->
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'windows' ">MESH_WINDOWS;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'linuxbsd' ">MESH_LINUXBSD;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'osx' ">MESH_OSX;MESH_MACOS;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'server' ">MESH_SERVER;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'uwp' ">MESH_UWP;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'haiku' ">MESH_HAIKU;MESH_PC</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'android' ">MESH_ANDROID;MESH_MOBILE</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'iphone' ">MESH_IPHONE;MESH_IOS;MESH_MOBILE</MeshPlatformConstants>
+    <MeshPlatformConstants Condition=" '$(MeshTargetPlatform)' == 'javascript' ">MESH_JAVASCRIPT;MESH_HTML5;MESH_WASM;MESH_WEB</MeshPlatformConstants>
+
+    <MeshDefineConstants>$(MeshDefineConstants);$(MeshPlatformConstants)</MeshDefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- ExportDebug also defines DEBUG like Debug does. -->
+    <DefineConstants Condition=" '$(Configuration)' == 'ExportDebug' ">$(DefineConstants);DEBUG</DefineConstants>
+    <!-- Debug defines TOOLS to differentiate between Debug and ExportDebug configurations. -->
+    <DefineConstants Condition=" '$(Configuration)' == 'Debug' ">$(DefineConstants);TOOLS</DefineConstants>
+
+    <DefineConstants>$(MeshDefineConstants);$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <!-- Mesh API references -->
+  <ItemGroup>
+    <!--
+    TODO:
+    We should consider a nuget package for reference assemblies. This is difficult because the
+    Mesh scripting API is continuaslly breaking backwards compatibility even in patch releases.
+    -->
+    <Reference Include="MeshSharp">
+      <Private>false</Private>
+      <HintPath>$(MeshProjectDir).mesh\mono\assemblies\$(MeshApiConfiguration)\MeshSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MeshSharpEditor" Condition=" '$(Configuration)' == 'Debug' ">
+      <Private>false</Private>
+      <HintPath>$(MeshProjectDir).mesh\mono\assemblies\$(MeshApiConfiguration)\MeshSharpEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5108 @@
+{
+	"core": {
+		"type": "CORE",
+		"version": {
+			"major": 4,
+			"minor": 0
+		},
+		"next": null,
+		"api": [
+			{
+				"name": "mesh_object_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_object *",
+						"p_o"
+					]
+				]
+			},
+			{
+				"name": "mesh_global_get_singleton",
+				"return_type": "mesh_object *",
+				"arguments": [
+					[
+						"char *",
+						"p_name"
+					]
+				]
+			},
+			{
+				"name": "mesh_method_bind_get_method",
+				"return_type": "mesh_method_bind *",
+				"arguments": [
+					[
+						"const char *",
+						"p_classname"
+					],
+					[
+						"const char *",
+						"p_methodname"
+					]
+				]
+			},
+			{
+				"name": "mesh_method_bind_ptrcall",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_method_bind *",
+						"p_method_bind"
+					],
+					[
+						"mesh_object *",
+						"p_instance"
+					],
+					[
+						"const void **",
+						"p_args"
+					],
+					[
+						"void *",
+						"p_ret"
+					]
+				]
+			},
+			{
+				"name": "mesh_method_bind_call",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"mesh_method_bind *",
+						"p_method_bind"
+					],
+					[
+						"mesh_object *",
+						"p_instance"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"const int",
+						"p_arg_count"
+					],
+					[
+						"mesh_variant_call_error *",
+						"p_call_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_get_class_constructor",
+				"return_type": "mesh_class_constructor",
+				"arguments": [
+					[
+						"const char *",
+						"p_classname"
+					]
+				]
+			},
+			{
+				"name": "mesh_get_global_constants",
+				"return_type": "mesh_dictionary",
+				"arguments": []
+			},
+			{
+				"name": "mesh_register_native_call_type",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const char *",
+						"call_type"
+					],
+					[
+						"native_call_cb",
+						"p_callback"
+					]
+				]
+			},
+			{
+				"name": "mesh_alloc",
+				"return_type": "void *",
+				"arguments": [
+					[
+						"int",
+						"p_bytes"
+					]
+				]
+			},
+			{
+				"name": "mesh_realloc",
+				"return_type": "void *",
+				"arguments": [
+					[
+						"void *",
+						"p_ptr"
+					],
+					[
+						"int",
+						"p_bytes"
+					]
+				]
+			},
+			{
+				"name": "mesh_free",
+				"return_type": "void",
+				"arguments": [
+					[
+						"void *",
+						"p_ptr"
+					]
+				]
+			},
+			{
+				"name": "mesh_print_error",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const char *",
+						"p_description"
+					],
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"const char *",
+						"p_file"
+					],
+					[
+						"int",
+						"p_line"
+					]
+				]
+			},
+			{
+				"name": "mesh_print_warning",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const char *",
+						"p_description"
+					],
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"const char *",
+						"p_file"
+					],
+					[
+						"int",
+						"p_line"
+					]
+				]
+			},
+			{
+				"name": "mesh_print_script_error",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const char *",
+						"p_description"
+					],
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"const char *",
+						"p_file"
+					],
+					[
+						"int",
+						"p_line"
+					]
+				]
+			},
+			{
+				"name": "mesh_get_class_tag",
+				"return_type": "void *",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_class"
+					]
+				]
+			},
+			{
+				"name": "mesh_object_cast_to",
+				"return_type": "mesh_object *",
+				"arguments": [
+					[
+						"const mesh_object *",
+						"p_object"
+					],
+					[
+						"void *",
+						"p_class_tag"
+					]
+				]
+			},
+			{
+				"name": "mesh_instance_from_id",
+				"return_type": "mesh_object *",
+				"arguments": [
+					[
+						"uint64_t",
+						"p_instance_id"
+					]
+				]
+			},
+			{
+				"name": "mesh_object_get_instance_id",
+				"return_type": "uint64_t",
+				"arguments": [
+					[
+						"const mesh_object *",
+						"p_object"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_variant *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_nil",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_bool",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_bool",
+						"p_b"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_int",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const int64_t",
+						"p_i"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_float",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const double",
+						"p_f"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_string",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_string *",
+						"p_s"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_string_name",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_string_name *",
+						"p_s"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_vector2",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector2 *",
+						"p_v2"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_vector2i",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector2i *",
+						"p_v2"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_rect2",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_rect2 *",
+						"p_rect2"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_rect2i",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_rect2i *",
+						"p_rect2"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_vector3",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector3 *",
+						"p_v3"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_vector3i",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector3i *",
+						"p_v3"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_transform2d",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_transform2d *",
+						"p_t2d"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_plane",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_plane *",
+						"p_plane"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_quaternion",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_quaternion *",
+						"p_quaternion"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_aabb",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_aabb *",
+						"p_aabb"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_basis",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_basis *",
+						"p_basis"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_transform3d",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_transform3d *",
+						"p_trans"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_color",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_color *",
+						"p_color"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_node_path",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_node_path *",
+						"p_np"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_rid",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_rid *",
+						"p_rid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_object",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_object *",
+						"p_obj"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_callable",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_callable *",
+						"p_cb"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_signal",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_signal *",
+						"p_signal"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_dictionary",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_dictionary *",
+						"p_dict"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_array *",
+						"p_arr"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_byte_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_byte_array *",
+						"p_pba"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_int32_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_int32_array *",
+						"p_pia"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_int64_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_int64_array *",
+						"p_pia"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_float32_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_float32_array *",
+						"p_pra"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_float64_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_float64_array *",
+						"p_pra"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_string_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_string_array *",
+						"p_psa"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_vector2_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector2_array *",
+						"p_pv2a"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_vector3_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector3_array *",
+						"p_pv3a"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_new_packed_color_array",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_color_array *",
+						"p_pca"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_bool",
+				"return_type": "mesh_bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_int",
+				"return_type": "int64_t",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_float",
+				"return_type": "double",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_string",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_string_name",
+				"return_type": "mesh_string_name",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_vector2",
+				"return_type": "mesh_vector2",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_vector2i",
+				"return_type": "mesh_vector2i",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_rect2",
+				"return_type": "mesh_rect2",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_rect2i",
+				"return_type": "mesh_rect2i",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_vector3",
+				"return_type": "mesh_vector3",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_vector3i",
+				"return_type": "mesh_vector3i",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_transform2d",
+				"return_type": "mesh_transform2d",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_plane",
+				"return_type": "mesh_plane",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_quaternion",
+				"return_type": "mesh_quaternion",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_aabb",
+				"return_type": "mesh_aabb",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_basis",
+				"return_type": "mesh_basis",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_transform3d",
+				"return_type": "mesh_transform3d",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_color",
+				"return_type": "mesh_color",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_node_path",
+				"return_type": "mesh_node_path",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_rid",
+				"return_type": "mesh_rid",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_object",
+				"return_type": "mesh_object *",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_callable",
+				"return_type": "mesh_callable",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_signal",
+				"return_type": "mesh_signal",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_dictionary",
+				"return_type": "mesh_dictionary",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_array",
+				"return_type": "mesh_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_byte_array",
+				"return_type": "mesh_packed_byte_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_int32_array",
+				"return_type": "mesh_packed_int32_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_int64_array",
+				"return_type": "mesh_packed_int64_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_float32_array",
+				"return_type": "mesh_packed_float32_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_float64_array",
+				"return_type": "mesh_packed_float64_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_string_array",
+				"return_type": "mesh_packed_string_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_vector2_array",
+				"return_type": "mesh_packed_vector2_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_vector3_array",
+				"return_type": "mesh_packed_vector3_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_as_packed_color_array",
+				"return_type": "mesh_packed_color_array",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_call",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"const mesh_int",
+						"p_argument_count"
+					],
+					[
+						"mesh_variant *",
+						"r_return"
+					],
+					[
+						"mesh_variant_call_error *",
+						"r_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_call_with_cstring",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const char *",
+						"p_method"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"const mesh_int",
+						"p_argument_count"
+					],
+					[
+						"mesh_variant *",
+						"r_return"
+					],
+					[
+						"mesh_variant_call_error *",
+						"r_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_evaluate",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant_operator",
+						"p_op"
+					],
+					[
+						"const mesh_variant *",
+						"p_a"
+					],
+					[
+						"const mesh_variant *",
+						"p_b"
+					],
+					[
+						"mesh_variant *",
+						"r_return"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_set",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					],
+					[
+						"const mesh_variant *",
+						"p_value"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_set_named",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_string_name *",
+						"p_key"
+					],
+					[
+						"const mesh_variant *",
+						"p_value"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_set_named_with_cstring",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const char *",
+						"p_key"
+					],
+					[
+						"const mesh_variant *",
+						"p_value"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_set_keyed",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					],
+					[
+						"const mesh_variant *",
+						"p_value"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_set_indexed",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					],
+					[
+						"const mesh_variant *",
+						"p_value"
+					],
+					[
+						"bool *",
+						"r_valid"
+					],
+					[
+						"bool *",
+						"r_oob"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_named",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_string_name *",
+						"p_key"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_named_with_cstring",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const char *",
+						"p_key"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_keyed",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_indexed",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					],
+					[
+						"bool *",
+						"r_valid"
+					],
+					[
+						"bool *",
+						"r_oob"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_iter_init",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_variant *",
+						"r_iter"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_iter_next",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_variant *",
+						"r_iter"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_iter_get",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_variant *",
+						"r_iter"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_hash_compare",
+				"return_type": "mesh_bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_other"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_booleanize",
+				"return_type": "mesh_bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_blend",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_a"
+					],
+					[
+						"const mesh_variant *",
+						"p_b"
+					],
+					[
+						"float",
+						"p_c"
+					],
+					[
+						"mesh_variant *",
+						"r_dst"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_interpolate",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_a"
+					],
+					[
+						"const mesh_variant *",
+						"p_b"
+					],
+					[
+						"float",
+						"p_c"
+					],
+					[
+						"mesh_variant *",
+						"r_dst"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_duplicate",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"mesh_bool",
+						"p_deep"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_stringify",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_operator_evaluator",
+				"return_type": "mesh_validated_operator_evaluator",
+				"arguments": [
+					[
+						"mesh_variant_operator",
+						"p_operator"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_a"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_b"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_operator_evaluator",
+				"return_type": "mesh_ptr_operator_evaluator",
+				"arguments": [
+					[
+						"mesh_variant_operator",
+						"p_operator"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_a"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_b"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_operator_return_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_operator",
+						"p_operator"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_a"
+					],
+					[
+						"mesh_variant_type",
+						"p_type_b"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_operator_name",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"mesh_variant_operator",
+						"p_operator"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_builtin_method",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_builtin_method_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_builtin_method",
+				"return_type": "mesh_validated_builtin_method",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_builtin_method_with_cstring",
+				"return_type": "mesh_validated_builtin_method",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_builtin_method",
+				"return_type": "mesh_ptr_builtin_method",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_builtin_method_with_cstring",
+				"return_type": "mesh_ptr_builtin_method",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_count_with_cstring",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_type_with_cstring",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_name",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_argument_name_with_cstring",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_builtin_method_return_value",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_builtin_method_return_value_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_return_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_return_type_with_cstring",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_const",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_const_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_static",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_static_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_vararg",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_builtin_method_vararg_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_builtin_method_list",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"mesh_string_name *",
+						"r_list"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constructor_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_constructor",
+				"return_type": "mesh_validated_constructor",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"int",
+						"p_constructor"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_constructor",
+				"return_type": "mesh_ptr_constructor",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"int",
+						"p_constructor"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constructor_argument_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"int",
+						"p_constructor"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constructor_argument_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"int",
+						"p_constructor"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constructor_argument_name",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"int",
+						"p_constructor"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_construct",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"mesh_variant *",
+						"p_base"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"int",
+						"p_argument_count"
+					],
+					[
+						"mesh_variant_call_error *",
+						"r_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_member_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_member_type_with_cstring",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_member_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_member_list",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"mesh_string_name *",
+						"r_list"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_setter",
+				"return_type": "mesh_validated_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_setter_with_cstring",
+				"return_type": "mesh_validated_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_getter",
+				"return_type": "mesh_validated_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_getter_with_cstring",
+				"return_type": "mesh_validated_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_setter",
+				"return_type": "mesh_ptr_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_setter_with_cstring",
+				"return_type": "mesh_ptr_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_getter",
+				"return_type": "mesh_ptr_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_getter_with_cstring",
+				"return_type": "mesh_ptr_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_indexing",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_indexed_element_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_indexed_setter",
+				"return_type": "mesh_validated_indexed_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_indexed_getter",
+				"return_type": "mesh_validated_indexed_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_indexed_setter",
+				"return_type": "mesh_ptr_indexed_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_indexed_getter",
+				"return_type": "mesh_ptr_indexed_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_indexed_size",
+				"return_type": "uint64_t",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_keyed",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_keyed_setter",
+				"return_type": "mesh_validated_keyed_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_keyed_getter",
+				"return_type": "mesh_validated_keyed_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_keyed_checker",
+				"return_type": "mesh_validated_keyed_checker",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_keyed_setter",
+				"return_type": "mesh_ptr_keyed_setter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_keyed_getter",
+				"return_type": "mesh_ptr_keyed_getter",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_keyed_checker",
+				"return_type": "mesh_ptr_keyed_checker",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constants_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constants_list",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"mesh_string_name *",
+						"r_list"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_constant",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_constant"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_constant_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_constant"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constant_value",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_constant"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_constant_value_with_cstring",
+				"return_type": "mesh_variant",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const char *",
+						"p_constant"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_utility_function",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_utility_function_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_call_utility_function",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					],
+					[
+						"mesh_variant *",
+						"r_ret"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"int",
+						"p_argument_count"
+					],
+					[
+						"mesh_variant_call_error *",
+						"r_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_call_utility_function_with_cstring",
+				"return_type": "void",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"mesh_variant *",
+						"r_ret"
+					],
+					[
+						"const mesh_variant **",
+						"p_args"
+					],
+					[
+						"int",
+						"p_argument_count"
+					],
+					[
+						"mesh_variant_call_error *",
+						"r_error"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_utility_function",
+				"return_type": "mesh_ptr_utility_function",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_ptr_utility_function_with_cstring",
+				"return_type": "mesh_ptr_utility_function",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_utility_function",
+				"return_type": "mesh_validated_utility_function",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_validated_utility_function_with_cstring",
+				"return_type": "mesh_validated_utility_function",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_type",
+				"return_type": "mesh_variant_utility_function_type",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_type_with_cstring",
+				"return_type": "mesh_variant_utility_function_type",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_count",
+				"return_type": "int",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_count_with_cstring",
+				"return_type": "int",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_type_with_cstring",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_name",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_argument_name_with_cstring",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					],
+					[
+						"int",
+						"p_argument"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_utility_function_return_value",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_utility_function_return_value_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_return_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_return_type_with_cstring",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_utility_function_vararg",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_string_name *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_is_utility_function_vararg_with_cstring",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const char *",
+						"p_function"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_utility_function_count",
+				"return_type": "int",
+				"arguments": []
+			},
+			{
+				"name": "mesh_variant_get_utility_function_list",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string_name *",
+						"r_functions"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_type",
+				"return_type": "mesh_variant_type",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_method",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_string_name *",
+						"p_method"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_member",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					],
+					[
+						"const mesh_string_name *",
+						"p_member"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_has_key",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"const mesh_variant *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					],
+					[
+						"bool *",
+						"r_valid"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_get_type_name",
+				"return_type": "mesh_string",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_type"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_can_convert",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_from"
+					],
+					[
+						"mesh_variant_type",
+						"p_to"
+					]
+				]
+			},
+			{
+				"name": "mesh_variant_can_convert_strict",
+				"return_type": "bool",
+				"arguments": [
+					[
+						"mesh_variant_type",
+						"p_from"
+					],
+					[
+						"mesh_variant_type",
+						"p_to"
+					]
+				]
+			},
+			{
+				"name": "mesh_aabb_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_aabb *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_aabb_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_aabb *",
+						"r_dest"
+					],
+					[
+						"const mesh_aabb *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_array_operator_index",
+				"return_type": "mesh_variant *",
+				"arguments": [
+					[
+						"mesh_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_array_operator_index_const",
+				"return_type": "const mesh_variant *",
+				"arguments": [
+					[
+						"const mesh_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_basis_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_basis *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_basis_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_basis *",
+						"r_dest"
+					],
+					[
+						"const mesh_basis *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_basis_operator_index",
+				"return_type": "mesh_vector3 *",
+				"arguments": [
+					[
+						"mesh_basis *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_basis_operator_index_const",
+				"return_type": "const mesh_vector3 *",
+				"arguments": [
+					[
+						"const mesh_basis *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_callable_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_callable *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_callable_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_callable *",
+						"r_dest"
+					],
+					[
+						"const mesh_callable *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_callable_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_callable *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_color_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_color *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_color_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_color *",
+						"r_dest"
+					],
+					[
+						"const mesh_color *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_color_operator_index",
+				"return_type": "float *",
+				"arguments": [
+					[
+						"mesh_color *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_color_operator_index_const",
+				"return_type": "const float *",
+				"arguments": [
+					[
+						"const mesh_color *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_dictionary_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_dictionary *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_dictionary_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_dictionary *",
+						"r_dest"
+					],
+					[
+						"const mesh_dictionary *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_dictionary_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_dictionary *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_dictionary_operator_index",
+				"return_type": "mesh_variant *",
+				"arguments": [
+					[
+						"mesh_dictionary *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					]
+				]
+			},
+			{
+				"name": "mesh_dictionary_operator_index_const",
+				"return_type": "const mesh_variant *",
+				"arguments": [
+					[
+						"const mesh_dictionary *",
+						"p_self"
+					],
+					[
+						"const mesh_variant *",
+						"p_key"
+					]
+				]
+			},
+			{
+				"name": "mesh_node_path_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_node_path *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_node_path_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_node_path *",
+						"r_dest"
+					],
+					[
+						"const mesh_node_path *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_node_path_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_node_path *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_byte_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_byte_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_byte_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_byte_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_byte_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_byte_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_byte_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_byte_array_operator_index",
+				"return_type": "uint8_t *",
+				"arguments": [
+					[
+						"mesh_packed_byte_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_byte_array_operator_index_const",
+				"return_type": "const uint8_t *",
+				"arguments": [
+					[
+						"const mesh_packed_byte_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int32_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int32_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int32_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int32_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_int32_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int32_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int32_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int32_array_operator_index",
+				"return_type": "int32_t *",
+				"arguments": [
+					[
+						"mesh_packed_int32_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int32_array_operator_index_const",
+				"return_type": "const int32_t *",
+				"arguments": [
+					[
+						"const mesh_packed_int32_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int64_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int64_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int64_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int64_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_int64_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int64_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_int64_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int64_array_operator_index",
+				"return_type": "int64_t *",
+				"arguments": [
+					[
+						"mesh_packed_int64_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_int64_array_operator_index_const",
+				"return_type": "const int64_t *",
+				"arguments": [
+					[
+						"const mesh_packed_int64_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float32_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float32_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float32_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float32_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_float32_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float32_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float32_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float32_array_operator_index",
+				"return_type": "float *",
+				"arguments": [
+					[
+						"mesh_packed_float32_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float32_array_operator_index_const",
+				"return_type": "const float *",
+				"arguments": [
+					[
+						"const mesh_packed_float32_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float64_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float64_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float64_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float64_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_float64_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float64_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_float64_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float64_array_operator_index",
+				"return_type": "double *",
+				"arguments": [
+					[
+						"mesh_packed_float64_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_float64_array_operator_index_const",
+				"return_type": "const double *",
+				"arguments": [
+					[
+						"const mesh_packed_float64_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_string_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_string_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_string_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_string_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_string_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_string_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_string_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_string_array_operator_index",
+				"return_type": "mesh_string *",
+				"arguments": [
+					[
+						"mesh_packed_string_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_string_array_operator_index_const",
+				"return_type": "const mesh_string *",
+				"arguments": [
+					[
+						"const mesh_packed_string_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector2_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2_array_operator_index",
+				"return_type": "mesh_vector2 *",
+				"arguments": [
+					[
+						"mesh_packed_vector2_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2_array_operator_index_const",
+				"return_type": "const mesh_vector2 *",
+				"arguments": [
+					[
+						"const mesh_packed_vector2_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2i_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2i_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2i_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2i_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector2i_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2i_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector2i_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2i_array_operator_index",
+				"return_type": "mesh_vector2i *",
+				"arguments": [
+					[
+						"mesh_packed_vector2i_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector2i_array_operator_index_const",
+				"return_type": "const mesh_vector2i *",
+				"arguments": [
+					[
+						"const mesh_packed_vector2i_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector3_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3_array_operator_index",
+				"return_type": "mesh_vector3 *",
+				"arguments": [
+					[
+						"mesh_packed_vector3_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3_array_operator_index_const",
+				"return_type": "const mesh_vector3 *",
+				"arguments": [
+					[
+						"const mesh_packed_vector3_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3i_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3i_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3i_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3i_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_vector3i_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3i_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_vector3i_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3i_array_operator_index",
+				"return_type": "mesh_vector3i *",
+				"arguments": [
+					[
+						"mesh_packed_vector3i_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_vector3i_array_operator_index_const",
+				"return_type": "const mesh_vector3i *",
+				"arguments": [
+					[
+						"const mesh_packed_vector3i_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_color_array_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_color_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_color_array_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_color_array *",
+						"r_dest"
+					],
+					[
+						"const mesh_packed_color_array *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_color_array_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_packed_color_array *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_color_array_operator_index",
+				"return_type": "mesh_color *",
+				"arguments": [
+					[
+						"mesh_packed_color_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_packed_color_array_operator_index_const",
+				"return_type": "const mesh_color *",
+				"arguments": [
+					[
+						"const mesh_packed_color_array *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_plane_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_plane *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_plane_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_plane *",
+						"r_dest"
+					],
+					[
+						"const mesh_plane *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_quaternion_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_quaternion *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_quaternion_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_quaternion *",
+						"r_dest"
+					],
+					[
+						"const mesh_quaternion *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_quaternion_operator_index",
+				"return_type": "mesh_real_t *",
+				"arguments": [
+					[
+						"mesh_quaternion *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_quaternion_operator_index_const",
+				"return_type": "const mesh_real_t *",
+				"arguments": [
+					[
+						"const mesh_quaternion *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_rect2_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rect2 *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_rect2_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rect2 *",
+						"r_dest"
+					],
+					[
+						"const mesh_rect2 *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_rect2i_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rect2i *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_rect2i_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rect2i *",
+						"r_dest"
+					],
+					[
+						"const mesh_rect2i *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_rid_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rid *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_rid_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_rid *",
+						"r_dest"
+					],
+					[
+						"const mesh_rid *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_signal_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_signal *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_signal_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_signal *",
+						"r_dest"
+					],
+					[
+						"const mesh_signal *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_signal_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_signal *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const mesh_string *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_latin1_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf8_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf16_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char16_t *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf32_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char32_t *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_wide_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const wchar_t *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_latin1_chars_and_len",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char *",
+						"p_contents"
+					],
+					[
+						"const int",
+						"p_size"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf8_chars_and_len",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char *",
+						"p_contents"
+					],
+					[
+						"const int",
+						"p_size"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf16_chars_and_len",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char16_t *",
+						"p_contents"
+					],
+					[
+						"const int",
+						"p_size"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_utf32_chars_and_len",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const char32_t *",
+						"p_contents"
+					],
+					[
+						"const int",
+						"p_size"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_new_with_wide_chars_and_len",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string *",
+						"r_dest"
+					],
+					[
+						"const wchar_t *",
+						"p_contents"
+					],
+					[
+						"const int",
+						"p_size"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_to_latin1_chars",
+				"return_type": "const char *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_to_utf8_chars",
+				"return_type": "const char *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_to_utf16_chars",
+				"return_type": "const char16_t *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_to_utf32_chars",
+				"return_type": "const char32_t *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_to_wide_chars",
+				"return_type": "const wchar_t *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_operator_index",
+				"return_type": "char32_t *",
+				"arguments": [
+					[
+						"mesh_string *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_operator_index_const",
+				"return_type": "const char32_t *",
+				"arguments": [
+					[
+						"const mesh_string *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_name_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string_name *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_name_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string_name *",
+						"r_dest"
+					],
+					[
+						"const mesh_string_name *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_name_destroy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string_name *",
+						"p_self"
+					]
+				]
+			},
+			{
+				"name": "mesh_string_name_new_with_latin1_chars",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_string_name *",
+						"r_dest"
+					],
+					[
+						"const char *",
+						"p_contents"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform3d_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_transform3d *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform3d_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_transform3d *",
+						"r_dest"
+					],
+					[
+						"const mesh_transform3d *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform2d_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_transform2d *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform2d_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_transform2d *",
+						"r_dest"
+					],
+					[
+						"const mesh_transform2d *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform2d_operator_index",
+				"return_type": "mesh_vector2 *",
+				"arguments": [
+					[
+						"mesh_transform2d *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_transform2d_operator_index_const",
+				"return_type": "const mesh_vector2 *",
+				"arguments": [
+					[
+						"const mesh_transform2d *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector2 *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector2 *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector2 *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2_operator_index",
+				"return_type": "mesh_real_t *",
+				"arguments": [
+					[
+						"mesh_vector2 *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2_operator_index_const",
+				"return_type": "const mesh_real_t *",
+				"arguments": [
+					[
+						"const mesh_vector2 *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2i_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector2i *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2i_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector2i *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector2i *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2i_operator_index",
+				"return_type": "int32_t *",
+				"arguments": [
+					[
+						"mesh_vector2i *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector2i_operator_index_const",
+				"return_type": "const int32_t *",
+				"arguments": [
+					[
+						"const mesh_vector2i *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector3 *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector3 *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector3 *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3_operator_index",
+				"return_type": "mesh_real_t *",
+				"arguments": [
+					[
+						"mesh_vector3 *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3_operator_index_const",
+				"return_type": "const mesh_real_t *",
+				"arguments": [
+					[
+						"const mesh_vector3 *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3i_new",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector3i *",
+						"r_dest"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3i_new_copy",
+				"return_type": "void",
+				"arguments": [
+					[
+						"mesh_vector3i *",
+						"r_dest"
+					],
+					[
+						"const mesh_vector3i *",
+						"p_src"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3i_operator_index",
+				"return_type": "int32_t *",
+				"arguments": [
+					[
+						"mesh_vector3i *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			},
+			{
+				"name": "mesh_vector3i_operator_index_const",
+				"return_type": "const int32_t *",
+				"arguments": [
+					[
+						"const mesh_vector3i *",
+						"p_self"
+					],
+					[
+						"mesh_int",
+						"p_index"
+					]
+				]
+			}
+		]
+	},
+	"extensions": [
+		{
+			"name": "nativescript",
+			"type": "NATIVESCRIPT",
+			"version": {
+				"major": 4,
+				"minor": 0
+			},
+			"next": null,
+			"api": [
+				{
+					"name": "mesh_nativescript_register_class",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_base"
+						],
+						[
+							"mesh_nativescript_instance_create_func",
+							"p_create_func"
+						],
+						[
+							"mesh_nativescript_instance_destroy_func",
+							"p_destroy_func"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_register_tool_class",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_base"
+						],
+						[
+							"mesh_nativescript_instance_create_func",
+							"p_create_func"
+						],
+						[
+							"mesh_nativescript_instance_destroy_func",
+							"p_destroy_func"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_register_method",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_function_name"
+						],
+						[
+							"mesh_nativescript_method_attributes",
+							"p_attr"
+						],
+						[
+							"mesh_nativescript_instance_method",
+							"p_method"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_method_argument_information",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_function_name"
+						],
+						[
+							"int",
+							"p_num_args"
+						],
+						[
+							"const mesh_nativescript_method_argument *",
+							"p_args"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_register_property",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_path"
+						],
+						[
+							"mesh_nativescript_property_attributes *",
+							"p_attr"
+						],
+						[
+							"mesh_nativescript_property_set_func",
+							"p_set_func"
+						],
+						[
+							"mesh_nativescript_property_get_func",
+							"p_get_func"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_register_signal",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const mesh_nativescript_signal *",
+							"p_signal"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_get_userdata",
+					"return_type": "void *",
+					"arguments": [
+						[
+							"mesh_object *",
+							"p_instance"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_class_documentation",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"mesh_string",
+							"p_documentation"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_method_documentation",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_function_name"
+						],
+						[
+							"mesh_string",
+							"p_documentation"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_property_documentation",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_path"
+						],
+						[
+							"mesh_string",
+							"p_documentation"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_signal_documentation",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const char *",
+							"p_signal_name"
+						],
+						[
+							"mesh_string",
+							"p_documentation"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_global_type_tag",
+					"return_type": "void",
+					"arguments": [
+						[
+							"int",
+							"p_idx"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const void *",
+							"p_type_tag"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_get_global_type_tag",
+					"return_type": "const void *",
+					"arguments": [
+						[
+							"int",
+							"p_idx"
+						],
+						[
+							"const char *",
+							"p_name"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_set_type_tag",
+					"return_type": "void",
+					"arguments": [
+						[
+							"void *",
+							"p_gdnative_handle"
+						],
+						[
+							"const char *",
+							"p_name"
+						],
+						[
+							"const void *",
+							"p_type_tag"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_get_type_tag",
+					"return_type": "const void *",
+					"arguments": [
+						[
+							"const mesh_object *",
+							"p_object"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_register_instance_binding_data_functions",
+					"return_type": "int",
+					"arguments": [
+						[
+							"mesh_nativescript_instance_binding_functions",
+							"p_binding_functions"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_unregister_instance_binding_data_functions",
+					"return_type": "void",
+					"arguments": [
+						[
+							"int",
+							"p_idx"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_get_instance_binding_data",
+					"return_type": "void *",
+					"arguments": [
+						[
+							"int",
+							"p_idx"
+						],
+						[
+							"mesh_object *",
+							"p_object"
+						]
+					]
+				},
+				{
+					"name": "mesh_nativescript_profiling_add_data",
+					"return_type": "void",
+					"arguments": [
+						[
+							"const char *",
+							"p_signature"
+						],
+						[
+							"uint64_t",
+							"p_line"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "pluginscript",
+			"type": "PLUGINSCRIPT",
+			"version": {
+				"major": 1,
+				"minor": 0
+			},
+			"next": null,
+			"api": [
+				{
+					"name": "mesh_pluginscript_register_language",
+					"return_type": "void",
+					"arguments": [
+						[
+							"const mesh_pluginscript_language_desc *",
+							"language_desc"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "android",
+			"type": "ANDROID",
+			"version": {
+				"major": 1,
+				"minor": 1
+			},
+			"next": null,
+			"api": [
+				{
+					"name": "mesh_android_get_env",
+					"return_type": "JNIEnv*",
+					"arguments": []
+				},
+				{
+					"name": "mesh_android_get_activity",
+					"return_type": "jobject",
+					"arguments": []
+				},
+				{
+					"name": "mesh_android_get_surface",
+					"return_type": "jobject",
+					"arguments": []
+				},
+				{
+					"name": "mesh_android_is_activity_resumed",
+					"return_type": "bool",
+					"arguments": []
+				}
+			]
+		},
+		{
+			"name": "videodecoder",
+			"type": "VIDEODECODER",
+			"version": {
+				"major": 0,
+				"minor": 1
+			},
+			"next": null,
+			"api": [
+				{
+					"name": "mesh_videodecoder_file_read",
+					"return_type": "mesh_int",
+					"arguments": [
+						[
+							"void *",
+							"file_ptr"
+						],
+						[
+							"uint8_t *",
+							"buf"
+						],
+						[
+							"int",
+							"buf_size"
+						]
+					]
+				},
+				{
+					"name": "mesh_videodecoder_file_seek",
+					"return_type": "int64_t",
+					"arguments": [
+						[
+							"void *",
+							"file_ptr"
+						],
+						[
+							"int64_t",
+							"pos"
+						],
+						[
+							"int",
+							"whence"
+						]
+					]
+				},
+				{
+					"name": "mesh_videodecoder_register_decoder",
+					"return_type": "void",
+					"arguments": [
+						[
+							"const mesh_videodecoder_interface_gdnative *",
+							"p_interface"
+						]
+					]
+				}
+			]
+		}
+	]
+}

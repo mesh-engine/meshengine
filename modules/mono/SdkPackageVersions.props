@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <PackageFloatingVersion_Mesh>4.0.*-*</PackageFloatingVersion_Mesh>
+    <PackageVersion_Mesh_NET_Sdk>4.0.0-dev6</PackageVersion_Mesh_NET_Sdk>
+    <PackageVersion_Mesh_SourceGenerators>4.0.0-dev3</PackageVersion_Mesh_SourceGenerators>
+  </PropertyGroup>
+</Project>

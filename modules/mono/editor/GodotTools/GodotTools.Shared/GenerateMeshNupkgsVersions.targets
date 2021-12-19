@@ -1,0 +1,36 @@
+<Project>
+  <!-- Generate C# file with the version of all the nupkgs bundled with Mesh -->
+
+  <Target Name="SetPropertiesForGenerateMeshNupkgsVersions">
+    <PropertyGroup>
+      <GeneratedMeshNupkgsVersionsFile>$(IntermediateOutputPath)MeshNupkgsVersions.g.cs</GeneratedMeshNupkgsVersionsFile>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="GenerateMeshNupkgsVersionsFile"
+          DependsOnTargets="PrepareForBuild;_GenerateMeshNupkgsVersionsFile"
+          BeforeTargets="BeforeCompile;CoreCompile">
+    <ItemGroup>
+      <Compile Include="$(GeneratedMeshNupkgsVersionsFile)" />
+      <FileWrites Include="$(GeneratedMeshNupkgsVersionsFile)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="_GenerateMeshNupkgsVersionsFile"
+          DependsOnTargets="SetPropertiesForGenerateMeshNupkgsVersions"
+          Inputs="$(MSBuildProjectFile);$(MSBuildThisFileDirectory);$(MSBuildProjectFile)\..\..\..\SdkPackageVersions.props"
+          Outputs="$(GeneratedMeshNupkgsVersionsFile)">
+    <PropertyGroup>
+      <GenerateMeshNupkgsVersionsCode><![CDATA[
+namespace $(RootNamespace) {
+    public class GeneratedMeshNupkgsVersions {
+        public const string MeshNETSdk = "$(PackageVersion_Mesh_NET_Sdk)"%3b
+        public const string MeshSourceGenerators = "$(PackageVersion_Mesh_SourceGenerators)"%3b
+    }
+}
+]]></GenerateMeshNupkgsVersionsCode>
+    </PropertyGroup>
+    <WriteLinesToFile Lines="$(GenerateMeshNupkgsVersionsCode)"
+                      File="$(GeneratedMeshNupkgsVersionsFile)"
+                      Overwrite="True" WriteOnlyWhenDifferent="True" />
+  </Target>
+</Project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.meshengine.mesh"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- Should match the mindSdk and targetSdk values in platform/android/java/app/config.gradle -->
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="30" />
+
+    <application>
+
+        <!-- Records the version of the Godot library -->
+        <meta-data
+            android:name="org.meshengine.library.version"
+            android:value="${meshLibraryVersion}" />
+
+        <service android:name=".GodotDownloaderService" />
+
+    </application>
+
+    <instrumentation
+        android:icon="@mipmap/icon"
+        android:label="@string/mesh_project_name_string"
+        android:name="org.meshengine.mesh.GodotInstrumentation"
+        android:targetPackage="org.meshengine.mesh" />
+
+</manifest>

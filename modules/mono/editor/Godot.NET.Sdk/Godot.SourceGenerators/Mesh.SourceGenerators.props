@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <!-- $(MeshProjectDir) is defined by Mesh.NET.Sdk -->
+    <CompilerVisibleProperty Include="MeshProjectDir" />
+    <CompilerVisibleProperty Include="MeshScriptPathAttributeGenerator" />
+  </ItemGroup>
+</Project>

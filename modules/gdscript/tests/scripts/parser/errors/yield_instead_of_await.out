@@ -1,0 +1,2 @@
+GDTEST_PARSER_ERROR
+"yield" was removed in Mesh 4.0. Use "await" instead.

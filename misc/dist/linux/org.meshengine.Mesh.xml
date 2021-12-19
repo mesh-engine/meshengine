@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<mime-info xmlns="https://specifications.freedesktop.org/shared-mime-info-spec">
+  <mime-type type="application/x-mesh-project">
+    <comment>Godot Engine project</comment>
+    <sub-class-of type="text/plain"/>
+    <icon name="x-mesh-project"/>
+    <glob pattern="project.mesh"/>
+  </mime-type>
+
+  <mime-type type="application/x-mesh-resource">
+    <comment>Godot Engine resource</comment>
+    <icon name="x-mesh-resource"/>
+    <glob pattern="*.res"/>
+    <glob pattern="*.tres"/>
+  </mime-type>
+
+  <mime-type type="application/x-mesh-scene">
+    <comment>Godot Engine scene</comment>
+    <icon name="x-mesh-scene"/>
+    <glob pattern="*.scn"/>
+    <glob pattern="*.tscn"/>
+    <glob pattern="*.escn"/>
+  </mime-type>
+
+  <mime-type type="application/x-mesh-shader">
+    <comment>Godot Engine shader</comment>
+    <sub-class-of type="text/plain"/>
+    <icon name="x-mesh-shader"/>
+    <glob pattern="*.gdshader"/>
+  </mime-type>
+
+  <mime-type type="application/x-gdscript">
+    <comment>GDScript script</comment>
+    <sub-class-of type="text/plain"/>
+    <icon name="x-gdscript"/>
+    <glob pattern="*.gd"/>
+  </mime-type>
+</mime-info>
